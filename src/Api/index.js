@@ -1,8 +1,10 @@
 import authHeader from "./authHeader";
 import { useAuth } from "../Context/authentication.context";
 
-const API_HOST = "http://localhost/api";
-
+let API_HOST = 'http://localhost'; //localhost sin nada más hace referencia al puerto 80, que me sirve para atacar al backend
+if ( window.location.hostname !== "localhost" ) {
+  API_HOST = "https://backend-twitter-app-nuclio.herokuapp.com"
+}
 const sendRequest = (resourceName, userOptions = {}, id) => {
   const defaultOptions = {
     mode: "cors",
