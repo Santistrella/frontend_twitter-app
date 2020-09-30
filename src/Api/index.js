@@ -23,7 +23,7 @@ const sendRequest = (resourceName, userOptions = {}, id) => {
     },
   };
 
-  let url = `${API_HOST}/${resourceName}`;
+  let url = `${API_HOST}/api/${resourceName}`;
 
   if (id) {
     url = `${url}/${id}`;
