@@ -18,7 +18,7 @@ export const TweetCreator = (props) => {
 
   const handleFormSubmit = () => {
     const token = localStorage.getItem("user");
-    fetchResource('tweet', {method: 'post'})
+    fetchResource('tweet', {method: 'post', body: JSON.stringify(data)})
     /* fetch("http://localhost/api/tweet", {
       method: "post",
       mode: "cors",

@@ -15,7 +15,7 @@ export const getUser = (id, onSuccess) => {
         }).then(res => {
             if (res.ok) {
                 return res.json()
-            } throw res
+            } throw res 
             })
 
          */
