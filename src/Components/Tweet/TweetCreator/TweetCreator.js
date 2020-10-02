@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./TweetCreator.css";
 import { useTweetContext } from "../TweetContext";
+import {fetchResource} from "../../../Api/Wrapper";
 
 export const TweetCreator = (props) => {
   const initialState = {
@@ -17,7 +18,8 @@ export const TweetCreator = (props) => {
 
   const handleFormSubmit = () => {
     const token = localStorage.getItem("user");
-    fetch("http://localhost/api/tweet", {
+    fetchResource('tweet', {method: 'post'})
+    /* fetch("http://localhost/api/tweet", {
       method: "post",
       mode: "cors",
       headers: {
@@ -31,7 +33,7 @@ export const TweetCreator = (props) => {
           return res.json();
         }
         throw res;
-      })
+      }) */
       .then((res) => {
         if (onSubmit !== undefined) {
           onSubmit();

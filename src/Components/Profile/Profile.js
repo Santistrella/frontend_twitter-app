@@ -6,6 +6,7 @@ import { ActivityTab } from "../Navigations/ActivityTab/ActivityTab";
 import EditProfile from "./EditProfile/EditProfile";
 import AuthService from "../../Services/auth.service";
 import { useParams } from "react-router-dom";
+import {fetchResource} from "../../Api/Wrapper";
 
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
@@ -20,6 +21,8 @@ export const Profile = () => {
   }, []);
 
   useEffect(() => {
+    fetchResource('user', {}, id)
+    /*
     fetch(`http://localhost/api/user/${id}`, {
       method: "get",
       mode: "cors",
@@ -33,7 +36,7 @@ export const Profile = () => {
           return res.json();
         }
         throw res;
-      })
+      }) */
       .then((resJson) => {
         setUserData(resJson);
       });

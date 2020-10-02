@@ -1,6 +1,10 @@
+import {fetchResource} from "../Api/Wrapper";
+
 export const getUser = (id, onSuccess) => {
     if(id != null) {
         const token = localStorage.getItem('user');
+        fetchResource('user', {})
+        /*
         fetch(`http://localhost/api/user/${id}`, {
             method: "get",
             mode: "cors",
@@ -12,7 +16,10 @@ export const getUser = (id, onSuccess) => {
             if (res.ok) {
                 return res.json()
             } throw res
-        }).then(resJson => {
+            })
+
+         */
+            .then(resJson => {
             console.log("setUserData")
             onSuccess(resJson);
         });

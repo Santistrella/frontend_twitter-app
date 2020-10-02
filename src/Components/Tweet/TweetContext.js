@@ -1,5 +1,6 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
 import {useAuth} from "../../Context/authentication.context";
+import {fetchResource} from "../../Api/Wrapper";
 
 const TweetContext = createContext();
 
@@ -7,14 +8,15 @@ const TweetContextProvider = (props) => {
   const [tweets, setTweets] = useState(undefined);
   const { auth } = useAuth();
   const refresh = useCallback(() => {
-    fetch("http://localhost/api/tweet",{
+    fetchResource('tweet', {})
+    /* fetch("http://localhost/api/tweet",{
       mode: "cors",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${auth.token}`,
       },
     })
-      .then((response) => response.json())
+      .then((response) => response.json()) */
       .then((res) => {
         setTweets(res);
       });
