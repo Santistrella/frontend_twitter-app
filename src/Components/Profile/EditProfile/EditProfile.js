@@ -49,7 +49,6 @@ export default function EditProfile(props) {
   };
 
   const { id } = useParams();
-  console.log("id", id);
   React.useEffect(() => {
     const token = localStorage.getItem("user");
     fetchResource('user', {}, id)
@@ -74,7 +73,7 @@ export default function EditProfile(props) {
         setIsSubmitting(false);
       });
   };
-  console.log("open", open);
+
   return userData ? (
     <Modal
       open={open}
